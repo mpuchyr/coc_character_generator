@@ -57,5 +57,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_205038) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "characters", "owners"
+  add_foreign_key "characters", "users", column: "owner_id"
 end

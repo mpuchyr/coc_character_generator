@@ -1,5 +1,5 @@
 class Character < ApplicationRecord
-  # belongs_to :owner, class_name: "User"
+  belongs_to :owner, class_name: "User"
   belongs_to :occupation
 
   before_save :assign_stats
