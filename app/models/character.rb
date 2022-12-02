@@ -20,6 +20,24 @@ class Character < ApplicationRecord
     self.pow = stats.pop
 
     self.age = rand(18..75)
+
+    if self.pronoun == nil
+      self.pronoun = ["he/him", "she/her", "they/them"].sample
+    end
+
+    if self.first_name == nil
+      if self.he?
+        self.first_name = Faker::Name.male_first_name
+      elsif self.she?
+        self.first_name = Faker::Name.female_first_name
+      else
+        self.first_name = Faker::Name.first_name
+      end
+    end
+    if self.last_name == nil
+      self.last_name = Faker::Name.last_name
+    end
+    
   end
 
   #   if self.age < 20
