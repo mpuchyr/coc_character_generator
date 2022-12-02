@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_205402) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_173937) do
+  create_table "characters", force: :cascade do |t|
+    t.integer "owner_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "str"
+    t.integer "con"
+    t.integer "siz"
+    t.integer "dex"
+    t.integer "app"
+    t.integer "pow"
+    t.integer "edu"
+    t.integer "luck"
+    t.integer "age"
+    t.string "damage_bonus"
+    t.integer "hp"
+    t.integer "mov"
+    t.string "pronoun"
+    t.string "max_sanity"
+    t.integer "occupation_id"
+    t.integer "mp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_characters_on_owner_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -25,4 +50,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_205402) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "characters", "owners"
 end

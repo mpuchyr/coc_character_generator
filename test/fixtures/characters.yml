@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: one
+  first_name: MyString
+  last_name: MyString
+  str: 1
+  con: 1
+  siz: 1
+  dex: 1
+  app: 1
+  pow: 1
+  edu: 1
+  luck: 1
+  age: 1
+  damage_bonus: MyString
+  hp: 1
+  mov: 1
+  pronoun: MyString
+  max_sanity: MyString
+  occupation_id: 1
+  mp: 1
+
+two:
+  owner: two
+  first_name: MyString
+  last_name: MyString
+  str: 1
+  con: 1
+  siz: 1
+  dex: 1
+  app: 1
+  pow: 1
+  edu: 1
+  luck: 1
+  age: 1
+  damage_bonus: MyString
+  hp: 1
+  mov: 1
+  pronoun: MyString
+  max_sanity: MyString
+  occupation_id: 1
+  mp: 1
