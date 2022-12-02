@@ -2,7 +2,9 @@ class Character < ApplicationRecord
   belongs_to :owner, class_name: "User"
   belongs_to :occupation
 
-  before_save :assign_stats
+  after_initialize do |user|
+    assign_stats
+  end
 
   enum pronoun: { he: "he/him", she: "she/her", they: "they/them"}
 
