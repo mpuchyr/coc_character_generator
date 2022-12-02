@@ -19,7 +19,9 @@ class Character < ApplicationRecord
     self.siz = stats.pop
     self.pow = stats.pop
 
-    self.age = rand(18..75)
+    if self.age == nil
+      self.age = rand(18..75)
+    end
 
     if self.pronoun == nil
       self.pronoun = ["he/him", "she/her", "they/them"].sample
