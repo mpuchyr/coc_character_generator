@@ -41,6 +41,10 @@ class Character < ApplicationRecord
     if self.last_name == nil
       self.last_name = Faker::Name.last_name
     end
+
+    if self.occupation_id == nil
+      self.occupation_id = rand(Occupation.count)
+    end
     
   end
 
