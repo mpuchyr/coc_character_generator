@@ -98,7 +98,8 @@
 
   <div>
     <%= form.label :occupation_id, style: "display: block" %>
-    <%= form.number_field :occupation_id %>
+    <%= form.select :occupation_id, Occupation.all.collect { |o| [o.name, o.id]}, include_blank: true %>
+    
   </div>
 
   <div>
