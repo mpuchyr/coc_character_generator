@@ -9,15 +9,17 @@ class Character < ApplicationRecord
   enum pronoun: { he: "he/him", she: "she/her", they: "they/them"}
 
   def assign_stats
-    stats = [80, 70, 60, 60, 50, 50, 50, 40].shuffle
-    self.str = stats.pop
-    self.con = stats.pop
-    self.dex = stats.pop
-    self.app = stats.pop
-    self.int = stats.pop
-    self.edu = stats.pop
-    self.siz = stats.pop
-    self.pow = stats.pop
+    if self.str == nil
+      stats = [80, 70, 60, 60, 50, 50, 50, 40].shuffle
+      self.str = stats.pop
+      self.con = stats.pop
+      self.dex = stats.pop
+      self.app = stats.pop
+      self.int = stats.pop
+      self.edu = stats.pop
+      self.siz = stats.pop
+      self.pow = stats.pop
+    end
 
     if self.age == nil
       self.age = rand(18..75)
