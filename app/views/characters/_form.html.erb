@@ -26,7 +26,7 @@
   
   <div>
     <%= form.label :age, style: "display: block" %>
-    <%= form.number_field :age %>
+    <%= form.number_field :age, { min: 18, max: 99 } %>
   </div>
 
 
