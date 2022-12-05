@@ -43,14 +43,11 @@ class Character < ApplicationRecord
 
     self.mp = self.pow / 5
 
-    if self.age == nil
-      self.age = rand(18..75)
-    end
-    self.apply_age_modifiers
 
-    if self.pronoun == nil
-      self.pronoun = ["he/him", "she/her", "they/them"].sample
-    end
+
+    # if self.pronoun == nil
+    #   self.pronoun = ["he/him", "she/her", "they/them"].sample
+    # end
 
 
     if self.occupation_id == nil
@@ -59,7 +56,15 @@ class Character < ApplicationRecord
 
     determine_name
     determine_db_and_build
+    determine_age_and_modifiers
     
+  end
+
+  def determine_age_and_modifiers
+    if self.age == nil
+      self.age = rand(18..75)
+    end
+    self.apply_age_modifiers
   end
 
   def apply_age_modifiers
@@ -68,19 +73,38 @@ class Character < ApplicationRecord
         self.str = self.str - 5
         self.siz = self.siz - 5
         self.edu = self.edu - 5
-      elsif self.age >= 20 && self.age <= 29
-
-      elsif self.age >= 30 && self.age <= 39
-
+      elsif self.age >= 20 && self.age <= 39
+        determine_edu_modifiers(1)
       elsif self.age >= 40 && self.age <= 49
         self.mov = self.mov - 1
+        determine_edu_modifiers(2)
       elsif self.age >= 50 && self.age <= 59
         self.mov = self.mov - 2
+        determine_edu_modifiers(3)
       elsif self.age >= 60 && self.age <= 69
         self.mov = self.mov - 3
+        determine_edu_modifiers(4)
       else
         self.mov = self.mov - 4
+        determine_edu_modifiers(4)
       end
+    end
+  end
+
+  def determine_edu_modifiers(num_of_times)
+    total = 0
+    
+    num_of_times.times do
+      if !stat_check(self.edu)
+        total += rand(1..10)
+        puts total
+      end
+    end
+
+    if self.edu + total <= 99
+      self.edu = self.edu + total
+    else
+      self.edu = 99
     end
   end
 
@@ -124,6 +148,6 @@ class Character < ApplicationRecord
 
   def stat_check(stat)
     roll = rand(1..100)
-    return roll > stat
+    return roll < stat
   end
 end
