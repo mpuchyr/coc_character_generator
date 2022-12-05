@@ -23,6 +23,8 @@ class Character < ApplicationRecord
       self.san = stats[0]
       self.pow = stats.pop
 
+      self.hp = (self.con + self.siz) / 10
+
     end
 
     if self.age == nil

@@ -88,7 +88,7 @@
 
   <div>
     <%= form.label :pronoun, style: "display: block" %>
-    <%= form.text_field :pronoun %>
+    <%= form.select :pronoun, Character.pronouns.values %>
   </div>
 
   <div>
