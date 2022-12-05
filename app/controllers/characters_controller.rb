@@ -30,6 +30,7 @@ class CharactersController < ApplicationController
       if @character.save
         skill = Skill.create(character_id: @character.id)
         skill.dodge = @character.dex / 2
+        skill.language_own = @character.edu
         skill.save
 
         format.html { redirect_to character_url(@character), notice: "Character was successfully created." }
