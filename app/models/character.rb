@@ -25,20 +25,24 @@ class Character < ApplicationRecord
 
       self.hp = (self.con + self.siz) / 10
 
-      if self.dex < self.siz && self.str < self.siz
-        self.mov = 7
-      elsif self.str >= self.siz || self.dex >= self.siz
-        self.mov = 6
-      else
-        self.mov = 9
-      end
-
     end
+
+    if self.dex < self.siz && self.str < self.siz
+      self.mov = 7
+    elsif self.str >= self.siz || self.dex >= self.siz
+      self.mov = 6
+    else
+      self.mov = 9
+    end
+
+    self.luck = (2 * rand(6) + 6) * 5
+
+    self.mp = self.pow / 5
 
     if self.age == nil
       self.age = rand(18..75)
     end
-    apply_age_modifiers
+    self.apply_age_modifiers
 
     if self.pronoun == nil
       self.pronoun = ["he/him", "she/her", "they/them"].sample
@@ -61,22 +65,50 @@ class Character < ApplicationRecord
     if self.occupation_id == nil
       self.occupation_id = rand(Occupation.count)
     end
+
+    determine_db_and_build
     
   end
 
   def apply_age_modifiers
-    if self.age < 20
-      self.str = self.str - 5
-      self.siz = self.siz - 5
-      self.edu = self.edu - 5
-    elsif self.age >= 20 && self.age <= 29
+    if self.age != nil
+      if self.age < 20
+        self.str = self.str - 5
+        self.siz = self.siz - 5
+        self.edu = self.edu - 5
+      elsif self.age >= 20 && self.age <= 29
 
-    elsif self.age >= 30 && self.age <= 39
+      elsif self.age >= 30 && self.age <= 39
 
-    elsif self.age >= 40 && self.age <= 49
-    elsif self.age >= 50 && self.age <= 59
-    elsif self.age >= 60 && self.age <= 69
+      elsif self.age >= 40 && self.age <= 49
+        self.mov = self.mov - 1
+      elsif self.age >= 50 && self.age <= 59
+        self.mov = self.mov - 2
+      elsif self.age >= 60 && self.age <= 69
+        self.mov = self.mov - 3
+      else
+        self.mov = self.mov - 4
+      end
+    end
+  end
+
+  def determine_db_and_build
+    total = self.siz + self.str
+    if total <= 64
+      self.damage_bonus = "-2"
+      self.build = -2
+    elsif total >= 65 && total <= 84
+      self.damage_bonus = "-1"
+      self.build = -1
+    elsif total >= 85 && total <= 124
+      self.damage_bonus = "None"
+      self.build = 0
+    elsif total >= 125 && total <= 164
+      self.damage_bonus = "+1D4"
+      self.build = 1
     else
+      self.damage_bonus = "+1D6"
+      self.build = 2
     end
   end
 

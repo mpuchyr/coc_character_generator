@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_162108) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_171310) do
   create_table "characters", force: :cascade do |t|
     t.integer "owner_id", null: false
     t.string "first_name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_162108) do
     t.datetime "updated_at", null: false
     t.integer "int"
     t.integer "san"
+    t.integer "build"
     t.index ["owner_id"], name: "index_characters_on_owner_id"
   end
 
