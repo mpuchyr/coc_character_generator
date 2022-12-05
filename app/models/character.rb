@@ -38,6 +38,7 @@ class Character < ApplicationRecord
         self.first_name = Faker::Name.first_name
       end
     end
+    
     if self.last_name == nil
       self.last_name = Faker::Name.last_name
     end
@@ -49,10 +50,11 @@ class Character < ApplicationRecord
   end
 
   #   if self.age < 20
-  #   elsif self.age >= 20 && self.age <= 29
   #     self.str = self.str - 5
   #     self.siz = self.siz - 5
   #     self.edu = self.edu - 5
+  #   elsif self.age >= 20 && self.age <= 29
+
   #   elsif self.age >= 30 && self.age <= 39
   #     if self.stat_check(edu)
         
