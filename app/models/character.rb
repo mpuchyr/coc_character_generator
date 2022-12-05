@@ -18,12 +18,17 @@ class Character < ApplicationRecord
       self.int = stats.pop
       self.edu = stats.pop
       self.siz = stats.pop
+
+      # determine power and sanity, as sanity equals power
+      self.san = stats[0]
       self.pow = stats.pop
+
     end
 
     if self.age == nil
       self.age = rand(18..75)
     end
+    apply_age_modifiers
 
     if self.pronoun == nil
       self.pronoun = ["he/him", "she/her", "they/them"].sample
@@ -49,26 +54,24 @@ class Character < ApplicationRecord
     
   end
 
-  #   if self.age < 20
-  #     self.str = self.str - 5
-  #     self.siz = self.siz - 5
-  #     self.edu = self.edu - 5
-  #   elsif self.age >= 20 && self.age <= 29
+  def apply_age_modifiers
+    if self.age < 20
+      self.str = self.str - 5
+      self.siz = self.siz - 5
+      self.edu = self.edu - 5
+    elsif self.age >= 20 && self.age <= 29
 
-  #   elsif self.age >= 30 && self.age <= 39
-  #     if self.stat_check(edu)
-        
-  #     end
-  #   elsif self.age >= 40 && self.age <= 49
-  #   elsif self.age >= 50 && self.age <= 59
-  #   elsif self.age >= 60 && self.age <= 69
-  #   else
-  #   end
+    elsif self.age >= 30 && self.age <= 39
 
-  # end
+    elsif self.age >= 40 && self.age <= 49
+    elsif self.age >= 50 && self.age <= 59
+    elsif self.age >= 60 && self.age <= 69
+    else
+    end
+  end
 
-  # def stat_check(stat)
-  #   roll = rand(1..100)
-  #   return roll > stat
-  # end
+  def stat_check(stat)
+    roll = rand(1..100)
+    return roll > stat
+  end
 end
