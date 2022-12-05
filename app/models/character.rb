@@ -2,9 +2,13 @@ class Character < ApplicationRecord
   belongs_to :owner, class_name: "User"
   belongs_to :occupation
 
-  after_initialize do |user|
+  before_save do |character|
     assign_stats
   end
+
+  # after_initialize do |character|
+  #   assign_stats
+  # end
 
   enum pronoun: { he: "he/him", she: "she/her", they: "they/them"}
 
@@ -48,24 +52,12 @@ class Character < ApplicationRecord
       self.pronoun = ["he/him", "she/her", "they/them"].sample
     end
 
-    if self.first_name == nil
-      if self.he?
-        self.first_name = Faker::Name.male_first_name
-      elsif self.she?
-        self.first_name = Faker::Name.female_first_name
-      else
-        self.first_name = Faker::Name.first_name
-      end
-    end
-    
-    if self.last_name == nil
-      self.last_name = Faker::Name.last_name
-    end
 
     if self.occupation_id == nil
       self.occupation_id = rand(Occupation.count)
     end
 
+    determine_name
     determine_db_and_build
     
   end
@@ -92,6 +84,7 @@ class Character < ApplicationRecord
     end
   end
 
+
   def determine_db_and_build
     total = self.siz + self.str
     if total <= 64
@@ -111,6 +104,23 @@ class Character < ApplicationRecord
       self.build = 2
     end
   end
+
+  def determine_name
+    if self.first_name == ""
+      if self.he?
+        self.first_name = Faker::Name.male_first_name
+      elsif self.she?
+        self.first_name = Faker::Name.female_first_name
+      else
+        self.first_name = Faker::Name.first_name
+      end
+    end
+    
+    if self.last_name == ""
+      self.last_name = Faker::Name.last_name
+    end
+  end
+
 
   def stat_check(stat)
     roll = rand(1..100)

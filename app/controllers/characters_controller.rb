@@ -22,6 +22,7 @@ class CharactersController < ApplicationController
   # POST /characters or /characters.json
   def create
     @character = Character.new(character_params)
+    @character.owner = current_user
 
     respond_to do |format|
       if @character.save
