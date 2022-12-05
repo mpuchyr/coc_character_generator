@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_171310) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_202505) do
   create_table "characters", force: :cascade do |t|
     t.integer "owner_id", null: false
     t.string "first_name"
@@ -41,6 +41,51 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_171310) do
 
   create_table "occupations", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.integer "accounting", default: 5
+    t.integer "anthropology", default: 1
+    t.integer "appraise", default: 5
+    t.integer "archaeology", default: 1
+    t.integer "charm", default: 15
+    t.integer "climb", default: 20
+    t.integer "disguise", default: 5
+    t.integer "dodge"
+    t.integer "drive_auto", default: 20
+    t.integer "elec_repair", default: 10
+    t.integer "fast_talk", default: 5
+    t.integer "fighting_brawl", default: 25
+    t.integer "firearms_handgun", default: 20
+    t.integer "firearms_rifle_shotgun", default: 25
+    t.integer "first_aid", default: 30
+    t.integer "history", default: 5
+    t.integer "intimidate", default: 15
+    t.integer "jump", default: 20
+    t.integer "law", default: 5
+    t.integer "library_use", default: 20
+    t.integer "listen", default: 20
+    t.integer "locksmith", default: 1
+    t.integer "mech_repair", default: 10
+    t.integer "medicine", default: 1
+    t.integer "natural_world", default: 10
+    t.integer "navigate", default: 10
+    t.integer "occult", default: 5
+    t.integer "persuade", default: 10
+    t.integer "psychoanalysis", default: 1
+    t.integer "psychology", default: 10
+    t.integer "ride", default: 5
+    t.integer "sleight_of_hand", default: 10
+    t.integer "spot_hidden", default: 25
+    t.integer "stealth", default: 20
+    t.integer "swim", default: 20
+    t.integer "throw", default: 20
+    t.integer "track", default: 10
+    t.integer "language_own"
+    t.integer "cthulhu_mythos"
+    t.integer "credit_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
