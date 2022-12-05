@@ -23,75 +23,19 @@
     <%= form.text_field :last_name %>
   </div>
 
-  <div>
-    <%= form.label :str, style: "display: block" %>
-    <%= form.number_field :str %>
-  </div>
-
-  <div>
-    <%= form.label :con, style: "display: block" %>
-    <%= form.number_field :con %>
-  </div>
-
-  <div>
-    <%= form.label :siz, style: "display: block" %>
-    <%= form.number_field :siz %>
-  </div>
-
-  <div>
-    <%= form.label :dex, style: "display: block" %>
-    <%= form.number_field :dex %>
-  </div>
-
-  <div>
-    <%= form.label :app, style: "display: block" %>
-    <%= form.number_field :app %>
-  </div>
-
-  <div>
-    <%= form.label :pow, style: "display: block" %>
-    <%= form.number_field :pow %>
-  </div>
-
-  <div>
-    <%= form.label :edu, style: "display: block" %>
-    <%= form.number_field :edu %>
-  </div>
-
-  <div>
-    <%= form.label :luck, style: "display: block" %>
-    <%= form.number_field :luck %>
-  </div>
-
+  
   <div>
     <%= form.label :age, style: "display: block" %>
     <%= form.number_field :age %>
   </div>
 
-  <div>
-    <%= form.label :damage_bonus, style: "display: block" %>
-    <%= form.text_field :damage_bonus %>
-  </div>
 
-  <div>
-    <%= form.label :hp, style: "display: block" %>
-    <%= form.number_field :hp %>
-  </div>
-
-  <div>
-    <%= form.label :mov, style: "display: block" %>
-    <%= form.number_field :mov %>
-  </div>
 
   <div>
     <%= form.label :pronoun, style: "display: block" %>
     <%= form.select :pronoun, Character.pronouns.values %>
   </div>
 
-  <div>
-    <%= form.label :san, style: "display: block" %>
-    <%= form.text_field :san %>
-  </div>
 
   <div>
     <%= form.label :occupation_id, style: "display: block" %>
@@ -99,15 +43,7 @@
     
   </div>
 
-  <div>
-    <%= form.label :mp, style: "display: block" %>
-    <%= form.number_field :mp %>
-  </div>
 
-  <div>
-    <%= form.label :build, style: "display: block" %>
-    <%= form.number_field :build %>
-  </div>
 
   <div>
     <%= form.submit %>
