@@ -1,5 +1,6 @@
 class Character < ApplicationRecord
   belongs_to :owner, class_name: "User"
+  has_one :skill
   # belongs_to :occupation
 
   before_save do |character|

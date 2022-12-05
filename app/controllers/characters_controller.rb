@@ -24,8 +24,13 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
     @character.owner = current_user
 
+
+
     respond_to do |format|
       if @character.save
+        skill = Skill.create(character_id: @character.id)
+        skill.save
+
         format.html { redirect_to character_url(@character), notice: "Character was successfully created." }
         format.json { render :show, status: :created, location: @character }
       else
