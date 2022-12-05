@@ -25,6 +25,14 @@ class Character < ApplicationRecord
 
       self.hp = (self.con + self.siz) / 10
 
+      if self.dex < self.siz && self.str < self.siz
+        self.mov = 7
+      elsif self.str >= self.siz || self.dex >= self.siz
+        self.mov = 6
+      else
+        self.mov = 9
+      end
+
     end
 
     if self.age == nil
