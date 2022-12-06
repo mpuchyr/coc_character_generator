@@ -13,6 +13,10 @@ class Character < ApplicationRecord
 
   enum pronoun: { he: "he/him", she: "she/her", they: "they/them"}
 
+  def occupation
+    return Occupation.find(self.occupation_id).name
+  end
+
   def assign_stats
     if self.str == nil
       stats = [80, 70, 60, 60, 50, 50, 50, 40].shuffle
