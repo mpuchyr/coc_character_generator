@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_174444) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_194737) do
   create_table "art_specializations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -127,14 +127,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_174444) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "character_id"
-    t.integer "art_craft"
+    t.integer "art_craft", default: 5
     t.integer "art_craft_specialization"
-    t.integer "language_other"
+    t.integer "language_other", default: 1
     t.integer "language_specialization_id"
-    t.integer "science"
+    t.integer "science", default: 1
     t.integer "science_specialization_id"
     t.integer "pilot_specialization_id"
-    t.integer "survival"
+    t.integer "survival", default: 10
     t.integer "survival_specialization_id"
   end
 
