@@ -24,6 +24,7 @@ class Occupation < ApplicationRecord
         when "Artist"
             return {
                 "art_craft" => skill_options.pop,
+                "art_specialization_id" => rand(ArtSpecialization.count),
                 ["history", "natural_world"].sample => skill_options.pop,
                 social_skills_choice_1 => skill_options.pop,
                 "language_other" => skill_options.pop,

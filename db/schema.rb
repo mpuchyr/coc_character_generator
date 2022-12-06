@@ -10,17 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_202323) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_203853) do
   create_table "art_specializations", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "character_skills", force: :cascade do |t|
-    t.integer "character_id"
-    t.integer "skill_id"
-    t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,12 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_202323) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "skill_profiles", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "skills", force: :cascade do |t|
     t.integer "accounting", default: 5
     t.integer "anthropology", default: 1
@@ -128,7 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_202323) do
     t.datetime "updated_at", null: false
     t.integer "character_id"
     t.integer "art_craft", default: 5
-    t.integer "art_craft_specialization"
+    t.integer "art_craft_specialization_id"
     t.integer "language_other", default: 1
     t.integer "language_specialization_id"
     t.integer "science", default: 1
