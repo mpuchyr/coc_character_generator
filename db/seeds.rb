@@ -35,3 +35,8 @@ survival_specializations = ["desert", "sea", "arctic"]
 survival_specializations.each do |survival_specialization|
     SurvivalSpecialization.create(name: survival_specialization)
 end
+
+languages = ["Chinese", "Spanish", "Arabic", "French", "Persian", "German", "Russian", "Portuguese", "Italian", "Turkish", "Korean", "Hindi", "Japanese", "Vietnamese" ]
+languages.each do |language|
+    LanguageSpecialization.create(name: language)
+end

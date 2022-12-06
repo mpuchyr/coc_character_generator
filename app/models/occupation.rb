@@ -13,7 +13,7 @@ class Occupation < ApplicationRecord
             return {
                 "appraise" => skill_options.pop,
                 "art_craft" => skill_options.pop,
-                # "art_craft_specialization_id" => ArtSpecialization.all.sample.id,
+                "art_craft_specialization_id" => ArtSpecialization.all.sample.id,
                 "history" => skill_options.pop,
                 "library_use" => skill_options.pop,
                 "language_other" => skill_options.pop,
@@ -24,7 +24,7 @@ class Occupation < ApplicationRecord
         when "Artist"
             return {
                 "art_craft" => skill_options.pop,
-                "art_specialization_id" => rand(ArtSpecialization.count),
+                "art_craft_specialization_id" => ArtSpecialization.all.sample.id,
                 ["history", "natural_world"].sample => skill_options.pop,
                 social_skills_choice_1 => skill_options.pop,
                 "language_other" => skill_options.pop,
@@ -49,10 +49,12 @@ class Occupation < ApplicationRecord
         when "Author"
             return {
                 "art_craft" => skill_options.pop,
+                "art_craft_specialization_id" => ArtSpecialization.where(name: "writer").first.id,
                 "history" => skill_options.pop,
                 "library_use" => skill_options.pop,
                 ["natural_world", "occult"].sample => skill_options.pop,
                 "language_other" => skill_options.pop,
+                "language_specialization_id" => LanguageSpecialization.all.sample.id,
                 "language_own" => skill_options.pop,
                 "psychology" => skill_options.pop,
                 "any" => skill_options.pop,
