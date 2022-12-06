@@ -31,7 +31,19 @@ class CharactersController < ApplicationController
         skill = Skill.create(character_id: @character.id)
         skill.dodge = @character.dex / 2
         skill.language_own = @character.edu
+        
+
+        occupation = Occupation.find(@character.occupation_id)
+        occupation_skills = occupation.occupation_skills
+
+        occupation_skills.each do |skill_name, value|
+          if skill_name != "any"
+            skill[skill_name] = value
+          end
+        end
+
         skill.save
+
 
         format.html { redirect_to character_url(@character), notice: "Character was successfully created." }
         format.json { render :show, status: :created, location: @character }
