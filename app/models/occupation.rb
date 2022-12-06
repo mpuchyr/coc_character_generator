@@ -22,11 +22,41 @@ class Occupation < ApplicationRecord
                 "credit_rating" => skill_options.pop
             }  
         when "Artist"
-            return ["art_craft", ["history", "natural_world"].sample, social_skills_choice_1, "language_other", "psychology", "spot_hidden", "any", "any"]
+            return {
+                "art_craft" => skill_options.pop,
+                ["history", "natural_world"].sample => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "language_other" => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "spot_hidden" => skill_options.pop,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
         when "Athlete"
-            return [["climb", "jump", "fighting_brawl"].sample, "ride", social_skills_choice_1, "swim", "throw", "any"]
+            return {
+                "climb" => skill_options.pop,
+                "jump" => skill_options.pop,
+                "fighting_brawl" => skill_options.pop,
+                "ride" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "swim" => skill_options.pop,
+                "throw" => skill_options.pop,
+                "any" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
         when "Author"
-            return ["art_craft", "history", "library_use", ["natural_world", "occult"].sample, "language_other", "language_own", "psychology", "any"]
+            return {
+                "art_craft" => skill_options.pop,
+                "history" => skill_options.pop,
+                "library_use" => skill_options.pop,
+                ["natural_world", "occult"].sample => skill_options.pop,
+                "language_other" => skill_options.pop,
+                "language_own" => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "any" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
         end
     end
 end
