@@ -33,6 +33,7 @@ class CharactersController < ApplicationController
         skill.language_own = @character.edu
         
 
+        # fills in skills based on character's occupation
         occupation = Occupation.find(@character.occupation_id)
         occupation_skills = occupation.occupation_skills
 
@@ -41,13 +42,23 @@ class CharactersController < ApplicationController
             skill[skill_name] = value
           else
             any_skill = Skill.column_names.sample
-            while any_skill == "cthulhu_mythos" || any_skill == "credit_rating" || skill[any_skill] >= 25
+            while any_skill.split("_").last == "id" || any_skill == "cthulhu_mythos" || any_skill == "credit_rating" || skill[any_skill] >= 25
               any_skill = Skill.column_names.sample
             end
 
             skill[any_skill] = value
-
           end
+        end
+
+        # randomly chooses hobby skills
+        4.times do
+          hobby_skill = Skill.column_names.sample
+          while  hobby_skill.split("_").last == "id" || hobby_skill == "cthulhu_mythos" || hobby_skill == "credit_rating" || skill[hobby_skill] >= 25
+            hobby_skill = Skill.column_names.sample
+          end
+
+          skill[hobby_skill] = 40
+
         end
 
         skill.save
