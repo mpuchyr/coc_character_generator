@@ -11,3 +11,27 @@ occupations = ["Antiquarian", "Artist", "Athlete", "Author"]
 occupations.each do |occupation|
     Occupation.create(name: occupation)
 end
+
+arts = ["acting", "barber", "carpenter", "cobbler", "cook", "dancer", "fine art", "forgery", "morris dancer", "opera singer", "painter", "photographer", "sculptor", "writer", "woodwork"]
+
+arts.each do |art|
+    ArtSpecialization.create(name: art)
+end
+
+sciences = ["astronomy", "biology", "botany", "chemistry", "cryptography", "engineering", "forensics", "geology", "mathematics", "meteorology", "pharmacy", "physics", "zoology"]
+
+sciences.each do |science|
+    ScienceSpecialization.create(name: science)
+end
+
+pilot_specializations = ["aircraft", "boat"]
+
+pilot_specializations.each do |specialization|
+    PilotSpecialization.create(name: specialization)
+end
+
+survival_specializations = ["desert", "sea", "arctic"]
+
+survival_specializations.each do |survival_specialization|
+    SurvivalSpecialization.create(name: survival_specialization)
+end

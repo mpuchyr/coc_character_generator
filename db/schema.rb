@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_194737) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_202323) do
   create_table "art_specializations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -136,6 +136,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_194737) do
     t.integer "pilot_specialization_id"
     t.integer "survival", default: 10
     t.integer "survival_specialization_id"
+  end
+
+  create_table "survival_specializations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
