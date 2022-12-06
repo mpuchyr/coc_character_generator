@@ -37,8 +37,16 @@ class CharactersController < ApplicationController
         occupation_skills = occupation.occupation_skills
 
         occupation_skills.each do |skill_name, value|
-          if skill_name != "any"
+          if skill_name.split("_").first != "any"
             skill[skill_name] = value
+          else
+            any_skill = Skill.column_names.sample
+            while any_skill == "cthulhu_mythos" || any_skill == "credit_rating" || skill[any_skill] >= 25
+              any_skill = Skill.column_names.sample
+            end
+
+            skill[any_skill] = value
+
           end
         end
 
