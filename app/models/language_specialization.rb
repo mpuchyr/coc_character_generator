@@ -1,0 +1,2 @@
+class LanguageSpecialization < ApplicationRecord
+end

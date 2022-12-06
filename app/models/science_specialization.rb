@@ -1,0 +1,2 @@
+class ScienceSpecialization < ApplicationRecord
+end

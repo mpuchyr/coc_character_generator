@@ -1,0 +1,2 @@
+class PilotSpecialization < ApplicationRecord
+end

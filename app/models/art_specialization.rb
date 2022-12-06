@@ -1,0 +1,2 @@
+class ArtSpecialization < ApplicationRecord
+end

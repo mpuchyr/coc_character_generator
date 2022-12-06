@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_173902) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_174444) do
+  create_table "art_specializations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "character_skills", force: :cascade do |t|
     t.integer "character_id"
     t.integer "skill_id"
@@ -47,7 +53,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_173902) do
     t.index ["owner_id"], name: "index_characters_on_owner_id"
   end
 
+  create_table "language_specializations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "occupations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pilot_specializations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "science_specializations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
