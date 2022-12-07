@@ -63,6 +63,12 @@ class CharactersController < ApplicationController
 
         skill.save
 
+        campaign_id = params.fetch(:character).fetch(:characters_campaign).fetch(:characters_campaign_id)
+
+        if campaign_id != nil
+          CharactersCampaign.create(character_id: @character.id, campaign_id: campaign_id)
+        end
+
 
         format.html { redirect_to character_url(@character), notice: "Character was successfully created." }
         format.json { render :show, status: :created, location: @character }
@@ -104,6 +110,6 @@ class CharactersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def character_params
-      params.require(:character).permit(:owner_id, :first_name, :last_name, :str, :con, :siz, :dex, :app, :pow, :edu, :luck, :age, :damage_bonus, :hp, :mov, :pronoun, :max_sanity, :occupation_id, :mp)
+      params.require(:character).permit(:owner_id, :first_name, :last_name, :str, :con, :siz, :dex, :app, :pow, :edu, :luck, :age, :damage_bonus, :hp, :mov, :pronoun, :max_sanity, :occupation_id, :mp, characters_campaign_attributes: [:characters_campaign_id])
     end
 end

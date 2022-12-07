@@ -3,8 +3,10 @@ class Character < ApplicationRecord
   has_one :skill
   # belongs_to :occupation
 
-  has_many :characters_campaigns
+  has_many :characters_campaigns, dependent: :delete_all
   has_many :campaigns, through: :characters_campaigns
+
+  accepts_nested_attributes_for :characters_campaigns
 
   before_save do |character|
     assign_stats
