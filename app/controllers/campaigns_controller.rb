@@ -8,6 +8,8 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns/1 or /campaigns/1.json
   def show
+    characters = CharactersCampaign.all.pluck(:character_id).uniq
+    @other_characters = Character.where(owner_id: current_user.id).where.not(id: characters)
   end
 
   # GET /campaigns/new

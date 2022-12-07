@@ -1,6 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @campaign %>
+<h1><%= @campaign.name %></h1>
+
+<h3>Characters In This Campaign</h3>
+<table border="1">
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% @campaign.characters.each do |character| %>
+    <td>
+      <%= link_to "#{character.first_name} #{character.last_name}", character_path(character) %>
+    </td>
+  <% end %>
+</table>
+
+<h3>Other Characters</h3>
+<table border="1">
+  <tr>
+    <th>Name</th>
+  </tr>
+  <%  @other_characters.each do |character| %>
+    <td>
+      <%= link_to "#{character.first_name} #{character.last_name}", character_path(character) %>
+    </td>
+  <% end %>
+</table>
 
 <div>
   <%= link_to "Edit this campaign", edit_campaign_path(@campaign) %> |
