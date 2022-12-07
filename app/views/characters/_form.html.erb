@@ -46,7 +46,7 @@
   <div>
     <%= form.fields_for :characters_campaign do |cc| %>
       <%= cc.label :characters_campaign_id %>
-      <%= cc.select :characters_campaign_id, Campaign.all.collect { |c| [c.name, c.id] }, include_blank: true %>
+      <%= cc.select :characters_campaign_id, Campaign.where(user_id: current_user.id).collect { |c| [c.name, c.id] }, include_blank: true %>
     <% end %>
   </div>
 
