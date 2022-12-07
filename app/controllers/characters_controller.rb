@@ -3,7 +3,7 @@ class CharactersController < ApplicationController
 
   # GET /characters or /characters.json
   def index
-    @characters = Character.where(owner_id: current_user.id)
+    @characters = Character.where(owner_id: current_user.id).order(last_name: :asc)
   end
 
   # GET /characters/1 or /characters/1.json
