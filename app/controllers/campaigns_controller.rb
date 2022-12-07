@@ -22,6 +22,7 @@ class CampaignsController < ApplicationController
   # POST /campaigns or /campaigns.json
   def create
     @campaign = Campaign.new(campaign_params)
+    @campaign.user_id = current_user.id
 
     respond_to do |format|
       if @campaign.save
