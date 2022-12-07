@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_211945) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_152911) do
   create_table "art_specializations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_211945) do
     t.integer "character_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -50,6 +51,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_211945) do
     t.integer "san"
     t.integer "build"
     t.index ["owner_id"], name: "index_characters_on_owner_id"
+  end
+
+  create_table "characters_campaigns", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "campaign_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "language_specializations", force: :cascade do |t|
