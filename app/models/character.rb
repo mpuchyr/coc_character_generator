@@ -61,7 +61,7 @@ class Character < ApplicationRecord
 
 
     if self.occupation_id == nil
-      self.occupation_id = rand(Occupation.count)
+      self.occupation_id = rand(1..Occupation.count)
     end
 
     determine_name

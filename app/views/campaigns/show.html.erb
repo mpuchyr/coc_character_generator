@@ -8,9 +8,11 @@
     <th>Name</th>
   </tr>
   <% @campaign.characters.each do |character| %>
-    <td>
-      <%= link_to "#{character.first_name} #{character.last_name}", character_path(character) %>
-    </td>
+    <tr>
+      <td>
+        <%= link_to "#{character.first_name} #{character.last_name}", character_path(character) %>
+      </td>
+    </tr>
   <% end %>
 </table>
 
@@ -20,9 +22,14 @@
     <th>Name</th>
   </tr>
   <%  @other_characters.each do |character| %>
-    <td>
-      <%= link_to "#{character.first_name} #{character.last_name}", character_path(character) %>
-    </td>
+    <tr>
+      <td>
+        <%= link_to "#{character.first_name} #{character.last_name}", character_path(character) %>
+      </td>
+      <td>
+        <%= character.occupation %>
+      </td>
+    </tr>
   <% end %>
 </table>
 
