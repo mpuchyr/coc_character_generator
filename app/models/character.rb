@@ -3,7 +3,8 @@ class Character < ApplicationRecord
   has_one :skill
   # belongs_to :occupation
 
-  has_many :character_campaigns
+  has_many :characters_campaigns
+  has_many :campaigns, through: :characters_campaigns
 
   before_save do |character|
     assign_stats
