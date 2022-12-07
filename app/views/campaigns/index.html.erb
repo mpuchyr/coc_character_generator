@@ -2,13 +2,19 @@
 
 <h1>Campaigns</h1>
 
-<div id="campaigns">
+
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+  </tr>
   <% @campaigns.each do |campaign| %>
-    <%= render campaign %>
-    <p>
-      <%= link_to "Show this campaign", campaign %>
-    </p>
+    <tr>
+      <td>
+        <%= link_to "#{campaign.name}", campaign_path(campaign) %>
+      </td>
+    </tr>
   <% end %>
-</div>
+</table>
 
 <%= link_to "New campaign", new_campaign_path %>
