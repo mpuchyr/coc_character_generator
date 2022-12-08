@@ -1,84 +1,107 @@
 <div id="<%= dom_id character %>">
 
-  <p>
+  <h1>
     <%= character.first_name %> <%= character.last_name %>
-  </p>
+  </h1>
 
-  <p>
-    <strong>Occupation:</strong>
-    <%= character.occupation %>
-  </p>
+  <h2><%= character.occupation %></h2>
 
-  <p>
-    <strong>Age:</strong>
-    <%= character.age %>
-  </p>
+  <strong>Age:</strong>
+  <%= character.age %>
 
-  <p>
-    <strong>Str:</strong>
-    <%= character.str %>
-  </p>
+  <div class="container text-center">
+    
+    <div class="row">
+      <div class="col">
+        <p>
+          <strong>Hp:</strong>
+          <%= character.hp %>
+        </p>
+      </div>
+      <div class="col">
+        <p>
+          <strong>Mp:</strong>
+          <%= character.mp %>
+        </p>
+      </div>
+      <div class="col">
+        <p>
+          <strong>Mov:</strong>
+          <%= character.mov %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>
+          <strong>Str:</strong>
+          <%= character.str %>
+        </p>
+      </div>
+      <div class="col">
+        <p>
+          <strong>Con:</strong>
+          <%= character.con %>
+        </p>
+      </div>
+      <div class="col">
+        <p>
+          <strong>Siz:</strong>
+          <%= character.siz %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>
+          <strong>Dex:</strong>
+          <%= character.dex %>
+        </p>
+      </div>
+      <div class="col">
+        <p>
+          <strong>App:</strong>
+          <%= character.app %>
+        </p>
+      </div>
+      <div class="col">
+        <p>
+          <strong>Pow:</strong>
+          <%= character.pow %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>
+          <strong>Edu:</strong>
+          <%= character.edu %>
+        </p>
+      </div>
+      <div class="col">
+        <p>
+          <strong>Luck:</strong>
+          <%= character.luck %>
+        </p>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <p>
+        <strong>Damage bonus:</strong>
+        <%= character.damage_bonus %>
+      </p>
+    </div>
+  
+  </div>
 
-  <p>
-    <strong>Con:</strong>
-    <%= character.con %>
-  </p>
-
-  <p>
-    <strong>Siz:</strong>
-    <%= character.siz %>
-  </p>
-
-  <p>
-    <strong>Dex:</strong>
-    <%= character.dex %>
-  </p>
-
-  <p>
-    <strong>App:</strong>
-    <%= character.app %>
-  </p>
-
-  <p>
-    <strong>Pow:</strong>
-    <%= character.pow %>
-  </p>
-
-  <p>
-    <strong>Edu:</strong>
-    <%= character.edu %>
-  </p>
-
-  <p>
-    <strong>Luck:</strong>
-    <%= character.luck %>
-  </p>
-
-
-
-  <p>
-    <strong>Damage bonus:</strong>
-    <%= character.damage_bonus %>
-  </p>
-
-  <p>
-    <strong>Hp:</strong>
-    <%= character.hp %>
-  </p>
-
-  <p>
-    <strong>Mov:</strong>
-    <%= character.mov %>
-  </p>
 
   <p>
     <strong>Pronoun:</strong>
     <%= character.pronoun %>
   </p>
 
-  <p>
-    <strong>Mp:</strong>
-    <%= character.mp %>
-  </p>
+
 
 </div>
