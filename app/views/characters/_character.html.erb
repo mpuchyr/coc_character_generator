@@ -1,17 +1,17 @@
 <div id="<%= dom_id character %>">
+
   <p>
-    <strong>Owner:</strong>
-    <%= character.owner_id %>
+    <%= character.first_name %> <%= character.last_name %>
   </p>
 
   <p>
-    <strong>First name:</strong>
-    <%= character.first_name %>
+    <strong>Occupation:</strong>
+    <%= character.occupation %>
   </p>
 
   <p>
-    <strong>Last name:</strong>
-    <%= character.last_name %>
+    <strong>Age:</strong>
+    <%= character.age %>
   </p>
 
   <p>
@@ -54,10 +54,7 @@
     <%= character.luck %>
   </p>
 
-  <p>
-    <strong>Age:</strong>
-    <%= character.age %>
-  </p>
+
 
   <p>
     <strong>Damage bonus:</strong>
@@ -77,16 +74,6 @@
   <p>
     <strong>Pronoun:</strong>
     <%= character.pronoun %>
-  </p>
-
-  <p>
-    <strong>Max sanity:</strong>
-    <%= character.max_sanity %>
-  </p>
-
-  <p>
-    <strong>Occupation:</strong>
-    <%= character.occupation_id %>
   </p>
 
   <p>

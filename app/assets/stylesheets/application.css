@@ -14,3 +14,22 @@
  *= require_self
  */
 
+body {
+    color: white;
+    background-image: url("background-red.jpeg");
+    background-color: #0D0D0D;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Special Elite', cursive;
+}
+
+.custom-style-bg {
+    background-color: #0D0D0D;
+    opacity: 0.8;
+}
+
+.custom-style-bg:hover {
+    opacity: 0.9;
+}
+
+
