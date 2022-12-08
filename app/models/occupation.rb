@@ -17,6 +17,7 @@ class Occupation < ApplicationRecord
                 "history" => skill_options.pop,
                 "library_use" => skill_options.pop,
                 "language_other" => skill_options.pop,
+                "language_specialization_id" => LanguageSpecialization.all.sample.id,
                 social_skills_choice_1 => skill_options.pop,
                 "any" => skill_options.pop,
                 "credit_rating" => skill_options.pop
@@ -28,6 +29,7 @@ class Occupation < ApplicationRecord
                 ["history", "natural_world"].sample => skill_options.pop,
                 social_skills_choice_1 => skill_options.pop,
                 "language_other" => skill_options.pop,
+                "language_specialization_id" => LanguageSpecialization.all.sample.id,
                 "psychology" => skill_options.pop,
                 "spot_hidden" => skill_options.pop,
                 "any" => skill_options.pop,
