@@ -1,7 +1,7 @@
 <div id="<%= dom_id character %>">
 
   <h1>
-    <%= character.first_name %> <%= character.last_name %>
+    <%= character.first_name %> <%= character.last_name %> (<%= character.read_attribute_before_type_cast('pronoun') %>)
   </h1>
 
   <h2><%= character.occupation %></h2>
@@ -95,13 +95,6 @@
     </div>
   
   </div>
-
-
-  <p>
-    <strong>Pronoun:</strong>
-    <%= character.pronoun %>
-  </p>
-
 
 
 </div>
