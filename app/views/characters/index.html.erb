@@ -3,9 +3,10 @@
 <h1>My Characters</h1>
 
 
-<table border="1">
+<table class="table">
   <tr>
     <th>Name</th>
+    <th>Occupation</th>
     <th>Campaign</th>
   </tr>
   <% @characters.each do |character| %>
@@ -20,6 +21,8 @@
         <td>
           <%= link_to "#{character.campaigns.first.name}", campaign_path(character.campaigns.first) %>
         </td>
+      <% else %>
+        <td></td>
       <% end %>
     </tr>
   <% end %>

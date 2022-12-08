@@ -3,9 +3,10 @@
 <h1><%= @campaign.name %></h1>
 
 <h3>Characters In This Campaign</h3>
-<table border="1">
+<table class="table">
   <tr>
     <th>Name</th>
+    <th>Occupation</th>
   </tr>
   <% @campaign.characters.each do |character| %>
     <tr>
@@ -20,9 +21,10 @@
 </table>
 
 <h3>Other Characters</h3>
-<table border="1">
+<table class="table">
   <tr>
     <th>Name</th>
+    <th>Occupation</th>
   </tr>
   <%  @other_characters.each do |character| %>
     <tr>
