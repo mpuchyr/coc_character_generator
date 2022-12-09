@@ -99,6 +99,35 @@
         <%= character.damage_bonus %>
       </p>
     </div>
+
+    <% count = 1 %>
+<% new_row = true %>
+<div>
+  <div class="row">
+    <h4>Skills</h4>
+  </div>
+  <% @skill_names.each_with_index do |skill_name, i| %>
+    <% if new_row == true %>
+      <% new_row = false %>
+      <div class="row">
+        <div class="col col-md-2">
+          <p><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</p>
+        </div>
+    <% elsif (i + 1) % 5 == 0 %>
+      <% new_row = true %>
+        <div class="col col-md-2">
+          <p><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</p>
+        </div>
+      </div>
+
+    <% else %>
+      <div class="col col-md-2">
+        <p><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</p>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
   
   </div>
 
