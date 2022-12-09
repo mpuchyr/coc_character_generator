@@ -28,5 +28,13 @@ body {
     opacity: 0.8;
 }
 
+.underlined {
+    text-decoration: underline;
+}
+
+.small-heading-font {
+    font-size: 15px;
+}
+
 
 
