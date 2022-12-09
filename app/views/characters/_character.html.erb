@@ -116,18 +116,18 @@
       <% if new_row == true %>
         <% new_row = false %>
         <div class="row">
-          <div class="col col-md-2">
+          <div class="offset-md-1 col-md-2">
             <p><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</p>
           </div>
       <% elsif (i + 1) % 5 == 0 %>
         <% new_row = true %>
-          <div class="col col-md-2">
+          <div class="col-md-2">
             <p><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</p>
           </div>
         </div>
 
       <% else %>
-        <div class="col col-md-2">
+        <div class="col-md-2">
           <p><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</p>
         </div>
       <% end %>
