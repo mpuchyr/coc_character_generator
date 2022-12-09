@@ -8,6 +8,14 @@ class CharactersController < ApplicationController
 
   # GET /characters/1 or /characters/1.json
   def show
+    @skill_names = []
+    Skill.order(name: :asc).column_names.each do |skill_name|
+      if skill_name.split("_").last != "id" && skill_name != "created_at" && skill_name != "updated_at" && skill_name != "id"
+        @skill_names.push(skill_name)
+      end
+    end
+
+    @skill_names = @skill_names.sort
   end
 
   # GET /characters/new

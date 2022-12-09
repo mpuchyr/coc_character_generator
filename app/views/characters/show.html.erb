@@ -2,18 +2,35 @@
 
 <%= render @character %>
 
+<% count = 1 %>
+<% new_row = true %>
+<div>
+  <div class="row">
+    <h4>Skills</h4>
+  </div>
+  <% @skill_names.each_with_index do |skill_name, i| %>
+    <% if new_row == true %>
+      <% new_row = false %>
+      <div class="row">
+        <div class="col col-md-2">
+          <%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%
+        </div>
+    <% elsif (i + 1) % 5 == 0 %>
+      <% new_row = true %>
+        <div class="col col-md-2">
+          <%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%
+        </div>
+      </div>
 
-
-<ul>
-  <% Skill.order(name: :asc).column_names.each do |skill_name| %>
-    <% if skill_name.split("_").last != "id" && skill_name != "created_at" && skill_name != "updated_at" && skill_name != "id" %>
-      <li><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</li>
-    <% end %>
-    <% if skill_name == "language_specialization_id" && @character.skill[skill_name] != nil %>
-      <li><%= LanguageSpecialization.find(@character.skill[skill_name]).name %></li>
+    <% else %>
+      <div class="col col-md-2">
+        <%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%
+      </div>
     <% end %>
   <% end %>
-</ul>
+  </div>
+</div>
+
 
 <div>
   <%= link_to "Edit this character", edit_character_path(@character) %> |
