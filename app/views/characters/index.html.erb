@@ -15,7 +15,7 @@
         <%= link_to "#{character.first_name} #{character.last_name}", character_path(character) %>
       </td>
       <td>
-        <%= character.occupation %>
+        <p><%= character.occupation %></p>
       </td>
       <% if character.campaigns != [] %>
         <td>
