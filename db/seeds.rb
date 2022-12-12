@@ -8,7 +8,7 @@
 
 occupations = ["Antiquarian", "Artist", "Athlete", "Author", "Clergy Member", "Criminal", "Dilettante", 
     "Doctor of Medicine", "Drifter", "Entertainer", "Farmer", "Journalist", "Lawyer", "Librarian", "Military Officer",
-    "Missionary", "Musician", "Parapsychologist"]
+    "Missionary", "Musician", "Parapsychologist", "Pilot", "Police Detective", "Police Officer"]
 
 Occupation.destroy_all
 ArtSpecialization.destroy_all

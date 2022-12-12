@@ -103,7 +103,7 @@ class Occupation < ApplicationRecord
                 "medicine" => skill_options.pop,
                 "psychology" => skill_options.pop,
                 "any" => skill_options.pop,
-                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
                 "credit_rating" => skill_options.pop
             }
         when "Drifter"
@@ -217,7 +217,7 @@ class Occupation < ApplicationRecord
             return {
                 "anthropology" => skill_options.pop,
                 "art_craft" => skill_options.pop,
-                "art_craft_specialization_id" => ArtSpecialization.where(name: "photography").first.id,
+                "art_craft_specialization_id" => ArtSpecialization.where(name: "photographer").first.id,
                 "history" => skill_options.pop,
                 "library_use" => skill_options.pop,
                 "occult" => skill_options.pop,
@@ -225,6 +225,43 @@ class Occupation < ApplicationRecord
                 "language_specialization_id" => LanguageSpecialization.all.sample.id,
                 "psychology" => skill_options.pop,
                 "any" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Pilot"
+            return {
+                "elec_repair" => skill_options.pop,
+                "mech_repair" => skill_options.pop,
+                # "op_hv_machine" => skill_options.pop,
+                "pilot" => skill_options.pop,
+                "pilot_specialization_id" => PilotSpecialization.where(name: "aircraft").first.id,
+                "science" => skill_options.pop,
+                "science_specialization_id" => ScienceSpecialization.where(name: "astronomy").first.id,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Police Detective"
+            return {
+                "disguise" => skill_options.pop,
+                ["firearms_handgun", "firearms_rifle_shotgun"].sample => skill_options.pop,
+                "law" => skill_options.pop,
+                "listen" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "spot_hidden" => skill_options.pop,
+                "any" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Police Officer"
+            return {
+                "fighting_brawl" => skill_options.pop,
+                ["firearms_handgun", "firearms_rifle_shotgun"].sample => skill_options.pop,
+                "first_aid" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "law" => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "spot_hidden" => skill_options.pop,
+                ["drive_auto", "ride"].sample => skill_options.pop,
                 "credit_rating" => skill_options.pop
             }
         end
