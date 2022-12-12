@@ -62,6 +62,38 @@ class Occupation < ApplicationRecord
                 "any" => skill_options.pop,
                 "credit_rating" => skill_options.pop
             }
+        when "Clergy Member"
+            return {
+                "accounting" => skill_options.pop,
+                "history" => skill_options.pop,
+                "library_use" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "any" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Criminal"
+            return {
+                social_skills_choice_1 => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "spot_hidden" => skill_options.pop,
+                "any" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Dilettante"
+            return {
+                "art_craft" => skill_options.pop,
+                "art_craft_specialization_id" => ArtSpecialization.all.sample.id,
+                ["firearms_handgun", "firearms_rifle_shotgun"].sample => skill_options.pop,
+                "language_other" => skill_options.pop,
+                "language_specialization_id" => LanguageSpecialization.all.sample.id,
+                "ride" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
+                "any_3" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
         end
     end
 end
