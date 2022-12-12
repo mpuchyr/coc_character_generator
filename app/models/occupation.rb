@@ -308,7 +308,7 @@ class Occupation < ApplicationRecord
                 ["firearms_handgun", "firearms_rifle_shotgun"].sample => skill_options.pop,
                 first_skill => skill_options.pop,
                 second_skill => skill_options.pop,
-                "language_specialization_id" => language_id
+                "language_specialization_id" => language_id,
                 "credit_rating" => skill_options.pop
             }
         when "Tribe Member"
