@@ -153,7 +153,43 @@ class Occupation < ApplicationRecord
                 "any_2" => skill_options.pop,
                 "credit_rating" => skill_options.pop
             }
-        
+        when "Lawyer"
+            return {
+                "accounting" => skill_options.pop,
+                "law" => skill_options.pop,
+                "library_use" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                social_skills_choice_2 => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Librarian"
+            return {
+                "accounting" => skill_options.pop,
+                "library_use" => skill_options.pop,
+                "language_other" => skill_options.pop,
+                "language_specialization_id" => LanguageSpecialization.all.sample.id,
+                "language_own" => skill_options.pop,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
+                "any_3" => skill_options.pop,
+                "any_4" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Military Officer"
+            return {
+                "accounting" => skill_options.pop,
+                ["firearms_handgun", "firearms_rifle_shotgun"].sample => skill_options.pop,
+                "navigate" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                social_skills_choice_2 => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "survival" => skill_options.pop,
+                "survival_specialization_id" => SurvivalSpecialization.all.sample.id,
+                "any" => skill_options.pop
+            }
         end
     end
 end
