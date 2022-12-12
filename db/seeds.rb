@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-occupations = ["Antiquarian", "Artist", "Athlete", "Author", "Clergy Member", "Criminal", "Dilettante"]
+occupations = ["Antiquarian", "Artist", "Athlete", "Author", "Clergy Member", "Criminal", "Dilettante", 
+    "Doctor of Medicine", "Drifter", "Entertainer", "Farmer", "Journalist", "Lawyer", "Librarian", "Military Officer"]
 
 Occupation.destroy_all
 ArtSpecialization.destroy_all
