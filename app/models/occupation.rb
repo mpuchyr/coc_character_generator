@@ -264,6 +264,77 @@ class Occupation < ApplicationRecord
                 ["drive_auto", "ride"].sample => skill_options.pop,
                 "credit_rating" => skill_options.pop
             }
+        when "Private Investigator"
+            return {
+                "art_craft" => skill_options.pop,
+                "art_craft_specialization_id" => ArtSpecialization.where(name: "photographer").first.id,
+                "disguise" => skill_options.pop,
+                "law" => skill_options.pop,
+                "library_use" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "spot_hidden" => skill_options.pop,
+                ["locksmith", "firearms_handgun"].sample => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Professor"
+            return {
+                "library_use" => skill_options.pop,
+                "language_other" => skill_options.pop,
+                "language_specialization_id" => LanguageSpecialization.all.sample.id,
+                "language_own" => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
+                "any_3" => skill_options.pop,
+                "any_4" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Soldier"
+            possible_skills = ["first_aid", "mech_repair", "language_other"].shuffle
+            first_skill = possible_skills.pop
+            second_skill = possible_skills.pop
+
+            language_id = nil
+
+            if first_skill == "language_other" || second_skill == "language_other"
+                language_id = LanguageSpecialization.all.sample.id
+            end
+            
+            return {
+                ["climb", "swim"].sample => skill_options.pop,
+                "dodge" => skill_options.pop,
+                "fighting_brawl" => skill_options.pop,
+                ["firearms_handgun", "firearms_rifle_shotgun"].sample => skill_options.pop,
+                first_skill => skill_options.pop,
+                second_skill => skill_options.pop,
+                "language_specialization_id" => language_id
+                "credit_rating" => skill_options.pop
+            }
+        when "Tribe Member"
+            return {
+                "climb" => skill_options.pop,
+                ["fighting_brawl", "throw"].sample => skill_options.pop,
+                "natural_world" => skill_options.pop,
+                "listen" => skill_options.pop,
+                "occult" => skill_options.pop,
+                "swim" => skill_options.pop,
+                "survival" => skill_options.pop,
+                "survival_specialization_id" => SurvivalSpecialization.all.sample.id,
+                "credit_rating" => skill_options.pop
+            }
+        when "Zealot"
+            return {
+                "history" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                social_skills_choice_2 => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "stealth" => skill_options.pop,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
+                "any_3" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
         end
     end
 end
