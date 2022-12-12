@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_07_163947) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_172654) do
   create_table "art_specializations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -137,6 +137,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_163947) do
     t.integer "pilot_specialization_id"
     t.integer "survival", default: 10
     t.integer "survival_specialization_id"
+    t.integer "pilot", default: 1
+    t.integer "op_hv_machine", default: 1
   end
 
   create_table "survival_specializations", force: :cascade do |t|

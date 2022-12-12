@@ -137,7 +137,7 @@ class Occupation < ApplicationRecord
                 social_skills_choice_1 => skill_options.pop,
                 "mech_repair" => skill_options.pop,
                 "natural_world" => skill_options.pop,
-                # "op_hv_machine" => skill_options.pop,
+                "op_hv_machine" => skill_options.pop,
                 "track" => skill_options.pop,
                 "any" => skill_options.pop
             }
@@ -201,7 +201,7 @@ class Occupation < ApplicationRecord
                 "any_2" => skill_options.pop,
                 "credit_rating" => skill_options.pop
             }
-        when "Musician"
+        when "Musician""Zealot" 
             return {
                 "art_craft" => skill_options.pop,
                 social_skills_choice_1 => skill_options.pop,
@@ -231,7 +231,7 @@ class Occupation < ApplicationRecord
             return {
                 "elec_repair" => skill_options.pop,
                 "mech_repair" => skill_options.pop,
-                # "op_hv_machine" => skill_options.pop,
+                "op_hv_machine" => skill_options.pop,
                 "pilot" => skill_options.pop,
                 "pilot_specialization_id" => PilotSpecialization.where(name: "aircraft").first.id,
                 "science" => skill_options.pop,
