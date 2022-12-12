@@ -94,6 +94,66 @@ class Occupation < ApplicationRecord
                 "any_3" => skill_options.pop,
                 "credit_rating" => skill_options.pop
             }
+        # review schema to add another science specialization
+        when "Doctor of Medicine"
+            return {
+                "first_aid" => skill_options.pop,
+                "language_other" => skill_options.pop,
+                "language_specialization_id" => LanguageSpecialization.where(name: "Latin").first.id,
+                "medicine" => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "any" => skill_options.pop,
+                "any" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Drifter"
+            return {
+                "climb" => skill_options.pop,
+                "jump" => skill_options.pop,
+                "listen" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "stealth" => skill_options.pop,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        when "Entertainer"
+            return {
+                "art_craft" => skill_options.pop,
+                "art_craft_specialization_id" => ArtSpecialization.where(name: "acting").first.id,
+                "disguise" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                social_skills_choice_2 => skill_options.pop,
+                "listen" => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop
+            }
+        when "Farmer"
+            return {
+                "art_craft" => skill_options.pop,
+                "art_craft_specialization_id" => ArtSpecialization.where(name: "farming").first.id,
+                "drive_auto" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "mech_repair" => skill_options.pop,
+                "natural_world" => skill_options.pop,
+                # "op_hv_machine" => skill_options.pop,
+                "track" => skill_options.pop,
+                "any" => skill_options.pop
+            }
+        when "Journalist"
+            return {
+                "art_craft" => skill_options.pop,
+                "history" => skill_options.pop,
+                "library_use" => skill_options.pop,
+                "language_own" => skill_options.pop,
+                social_skills_choice_1 => skill_options.pop,
+                "psychology" => skill_options.pop,
+                "any" => skill_options.pop,
+                "any_2" => skill_options.pop,
+                "credit_rating" => skill_options.pop
+            }
+        
         end
     end
 end

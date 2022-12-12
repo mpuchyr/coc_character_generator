@@ -8,11 +8,20 @@
 
 occupations = ["Antiquarian", "Artist", "Athlete", "Author", "Clergy Member", "Criminal", "Dilettante"]
 
+Occupation.destroy_all
+ArtSpecialization.destroy_all
+ScienceSpecialization.destroy_all
+PilotSpecialization.destroy_all
+SurvivalSpecialization.destroy_all
+LanguageSpecialization.destroy_all
+
+Character.destroy_all
+
 occupations.each do |occupation|
     Occupation.create(name: occupation)
 end
 
-arts = ["acting", "barber", "carpenter", "cobbler", "cook", "dancer", "fine art", "forgery", "morris dancer", "opera singer", "painter", "photographer", "sculptor", "writer", "woodwork"]
+arts = ["acting", "barber", "carpenter", "cobbler", "cook", "dancer", "fine art", "forgery", "morris dancer", "opera singer", "painter", "photographer", "sculptor", "writer", "woodwork", "farming"]
 
 arts.each do |art|
     ArtSpecialization.create(name: art)
@@ -36,7 +45,7 @@ survival_specializations.each do |survival_specialization|
     SurvivalSpecialization.create(name: survival_specialization)
 end
 
-languages = ["Chinese", "Spanish", "Arabic", "French", "Persian", "German", "Russian", "Portuguese", "Italian", "Turkish", "Korean", "Hindi", "Japanese", "Vietnamese" ]
+languages = ["Chinese", "Spanish", "Arabic", "French", "Persian", "German", "Russian", "Portuguese", "Italian", "Turkish", "Korean", "Hindi", "Japanese", "Vietnamese", "Latin" ]
 languages.each do |language|
     LanguageSpecialization.create(name: language)
 end
