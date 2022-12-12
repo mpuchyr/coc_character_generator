@@ -195,7 +195,7 @@ class Occupation < ApplicationRecord
                 "art_craft" => skill_options.pop,
                 "art_craft_specialization_id" => ArtSpecialization.all.sample.id,
                 "first_aid" => skill_options.pop,
-                # "mech_repair" => skill_options.pop,
+                "mech_repair" => skill_options.pop,
                 social_skills_choice_1 => skill_options.pop,
                 "any" => skill_options.pop,
                 "any_2" => skill_options.pop,
