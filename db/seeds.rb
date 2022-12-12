@@ -7,7 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 occupations = ["Antiquarian", "Artist", "Athlete", "Author", "Clergy Member", "Criminal", "Dilettante", 
-    "Doctor of Medicine", "Drifter", "Entertainer", "Farmer", "Journalist", "Lawyer", "Librarian", "Military Officer"]
+    "Doctor of Medicine", "Drifter", "Entertainer", "Farmer", "Journalist", "Lawyer", "Librarian", "Military Officer",
+    "Missionary", "Musician", "Parapsychologist"]
 
 Occupation.destroy_all
 ArtSpecialization.destroy_all
