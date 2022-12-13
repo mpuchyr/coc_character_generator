@@ -18,7 +18,7 @@ class CharactersController < ApplicationController
 
     @skill_names = @skill_names.sort
 
-    @art_id = @character.skill["art_specilialization_id"]
+    @art_id = @character.skill["art_craft_specialization_id"]
     @pilot_id = @character.skill["pilot_specialization_id"]
     @science_id = @character.skill["science_specialization_id"]
     @language_id = @character.skill["language_specialization_id"]
@@ -73,6 +73,18 @@ class CharactersController < ApplicationController
             hobby_skill = Skill.column_names.sample
           end
 
+          case hobby_skill
+            when "art_craft"
+              @character.skill["art_craft_specialization_id"] = ArtSpecialization.all.sample.id
+            when "language_other"
+              @character.skill["language_specialization_id"] = LanguageSpecialization.all.sample.id
+            when "survival"
+              @character.skill["survival_specialization_id"] = SurvivalSpecialization.all.sample.id
+            when "pilot"
+              @character.skill["pilot_specialization_id"] = PilotSpecialization.all.sample.id
+            when "science"
+              @character.skill["science_specialization_id"] = ScienceSpecialization.all.sample.id
+          end
           skill[hobby_skill] = 40
 
         end

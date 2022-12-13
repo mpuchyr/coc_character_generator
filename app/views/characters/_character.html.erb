@@ -107,10 +107,11 @@
     <hr>
 
     <% def display_specialization(skill_name) %>
-      <% if skill_name == "language_other" && @language_id != nil %>
+
+      <% if skill_name == "art_craft" && @art_id != nil %>
+        <p><%= ArtSpecialization.where(id: @art_id).first.name %></p>
+      <% elsif skill_name == "language_other" && @language_id != nil %>
        <p><%= LanguageSpecialization.where(id: @language_id).first.name %></p>
-      <% elsif skill_name == "art_craft" && @art_id != nil %>
-       <p><%= ArtSpecialization.where(id: @art_id).first.name %></p>
       <% elsif skill_name == "science" && @science_id != nil %>
         <p><%= ScienceSpecialization.where(id: @science_id).first.name %></p>
       <% elsif skill_name == "pilot" && @pilot_id != nil %>

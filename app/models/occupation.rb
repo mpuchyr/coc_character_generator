@@ -127,7 +127,8 @@ class Occupation < ApplicationRecord
                 "listen" => skill_options.pop,
                 "psychology" => skill_options.pop,
                 "any" => skill_options.pop,
-                "any_2" => skill_options.pop
+                "any_2" => skill_options.pop,
+                "credit_rating" => skill_options.pop
             }
         when "Farmer"
             return {
