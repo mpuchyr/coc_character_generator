@@ -88,16 +88,31 @@ class Character < ApplicationRecord
       elsif self.age >= 40 && self.age <= 49
         self.mov = self.mov - 1
         determine_edu_modifiers(2)
+        stat_reduction(5, 5)
       elsif self.age >= 50 && self.age <= 59
         self.mov = self.mov - 2
         determine_edu_modifiers(3)
+        stat_reduction(10, 10)
       elsif self.age >= 60 && self.age <= 69
         self.mov = self.mov - 3
         determine_edu_modifiers(4)
+        stat_reduction(20, 15)
       else
         self.mov = self.mov - 4
         determine_edu_modifiers(4)
+        stat_reduction(40, 20)
       end
+    end
+  end
+
+  def stat_reduction(stat_reduction, app_reduction)
+    self.app = self.app - app_reduction
+    total = stat_reduction
+    while total > 0
+      stat_to_reduce = [:str, :con, :dex].sample
+      reduction = rand(1..total)
+      self[stat_to_reduce] = self[stat_to_reduce] - reduction
+      total -= reduction
     end
   end
 
