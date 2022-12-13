@@ -201,7 +201,7 @@ class Occupation < ApplicationRecord
                 "any_2" => skill_options.pop,
                 "credit_rating" => skill_options.pop
             }
-        when "Musician""Zealot" 
+        when "Musician"
             return {
                 "art_craft" => skill_options.pop,
                 social_skills_choice_1 => skill_options.pop,
