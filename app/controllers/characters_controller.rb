@@ -89,6 +89,15 @@ class CharactersController < ApplicationController
 
   # PATCH/PUT /characters/1 or /characters/1.json
   def update
+    campaign_id = params.fetch(:character).fetch(:characters_campaign).fetch(:characters_campaign_id)
+    
+    if campaign_id == ""
+      CharactersCampaign.where(character_id: @character.id).first.destroy
+    elsif campaign_id != nil
+      CharactersCampaign.create(character_id: @character.id, campaign_id: campaign_id)
+
+    end
+
     respond_to do |format|
       if @character.update(character_params)
         format.html { redirect_to character_url(@character), notice: "Character was successfully updated." }
