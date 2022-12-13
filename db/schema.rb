@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_12_172654) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_13_204016) do
   create_table "art_specializations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -123,7 +123,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_172654) do
     t.integer "throw", default: 20
     t.integer "track", default: 10
     t.integer "language_own"
-    t.integer "cthulhu_mythos"
+    t.integer "cthulhu_mythos", default: 0
     t.integer "credit_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
