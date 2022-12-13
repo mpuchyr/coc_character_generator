@@ -15,7 +15,15 @@ class CharactersController < ApplicationController
       end
     end
 
+
     @skill_names = @skill_names.sort
+
+    @art_id = @character.skill["art_specilialization_id"]
+    @pilot_id = @character.skill["pilot_specialization_id"]
+    @science_id = @character.skill["science_specialization_id"]
+    @language_id = @character.skill["language_specialization_id"]
+    @survival_id = @character.skill["survival_specialization_id"]
+
   end
 
   # GET /characters/new

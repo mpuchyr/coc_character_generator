@@ -106,6 +106,21 @@
 
     <hr>
 
+    <% def display_specialization(skill_name) %>
+      <% if skill_name == "language_other" && @language_id != nil %>
+       <p><%= LanguageSpecialization.where(id: @language_id).first.name %></p>
+      <% elsif skill_name == "art_craft" && @art_id != nil %>
+       <p><%= ArtSpecialization.where(id: @art_id).first.name %></p>
+      <% elsif skill_name == "science" && @science_id != nil %>
+        <p><%= ScienceSpecialization.where(id: @science_id).first.name %></p>
+      <% elsif skill_name == "pilot" && @pilot_id != nil %>
+        <p><%= PilotSpecialization.where(id: @pilot_id).first.name %></p>
+      <% elsif skill_name == "survival" && @survival_id != nil %>
+        <p><%= SurvivalSpecialization.where(id: @survival_id).first.name %></p>
+      <% end %>
+
+    <% end %>
+
     <% new_row = true %>
     <div class="row">
       <div class="col">  
@@ -118,17 +133,20 @@
         <div class="row">
           <div class="offset-md-1 col-md-2">
             <p><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</p>
+            <% display_specialization(skill_name) %>
           </div>
       <% elsif (i + 1) % 5 == 0 %>
         <% new_row = true %>
           <div class="col-md-2">
             <p><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</p>
+            <% display_specialization(skill_name) %>
           </div>
         </div>
 
       <% else %>
         <div class="col-md-2">
           <p><%= skill_name.split("_").join(" ") %>: <%= @character.skill[skill_name] %>%</p>
+          <% display_specialization(skill_name) %>
         </div>
       <% end %>
     <% end %>
